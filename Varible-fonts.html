@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<!-- Variable-fonts-01.html -->
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Variable Font 01</title>
+
+		<meta name="description" content="Variable Fonts Presentation for Astoria Tech Meetup">
+		<meta name="author" content="Craig Webb">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+<style>
+html:not(.print-pdf) .reveal section medium{font-size:.86em;}
+
+.reveal-viewport {
+  background: #fff;
+  background-color: var(--r-background-color);
+}
+
+</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<a href="https://revealjs.com">
+						<img src="https://CraigWebbArt.com/Variable-Font-Libraries/Variable-Fonts.jpg" alt="Variable Fonts" style="height: auto; margin: 0 auto 2rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<h3>Hosting Variable Fonts Locally</h3>
+					<p>
+						<small>Created by <a href="https://craigwebbart.com">Craig Webb</a> at <a href="https://github.com/cwebba1/Variable-Font-Libraries">Github.com/cwebba1/Variable-font-libraries</a></small>
+					</p>
+
+				</section>
+
+<section>
+	<h2>Why Host Fonts Locally?</h2>
+	<p><medium>
+Hosting fonts locally on a website offers several advantages over relying on third-party font hosting services like Google Fonts. Here are five key reasons to do so:</medium>
+<ul>
+<li>Improved Performance and Speed</li>
+<li>Increased Control</li>
+<li>Reliability and Independence</li>
+<li>Better Privacy and Security</li>
+<li>Reduced Risk of FOUC (Flash of Unstyled Content)</li>
+</ul>
+	</p>
+</section>
+
+<section>
+	<h2>Load fonts locally using CSS:</h2>
+<p><medium>
+<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+@font-face {
+  font-family: 'YourFont';
+  src: url('your-font-name.woff2') format('woff2'),
+       url('your-font-name.woff') format('woff');
+  font-style: normal;   /* Or italic */
+  font-weight: 100 900;  /* Range of weights */
+  font-stretch: 75% 125%; /* Range of widths */
+  format('woff2-variations');
+}
+</code></pre>
+</medium></p>
+</section>
+
+<section>
+	<h2>What are Variable Fonts?</h2>
+<img src="https://CraigWebbArt.com/Variable-Font-Libraries/variable-static.gif" alt="Variable Fonts" style="height: auto; margin: 0 auto 2rem auto; background: transparent;">
+<p><medium>Variable fonts are a type of font that allows a single font file to contain multiple variations of the font style, weight, width, and other properties which can be adjusted dynamically.</medium></p>
+</section>
+
+<section>
+	<h2>Key features of <br>variable fonts:</h2>
+<p><medium>
+<ul>
+<li>Multiple Axes of Variation</li>
+<li>Efficiency in File Size</li>
+<li>Dynamic Styling</li>
+<li>Improved Performance</li>
+<li>Greater Flexibility</li>
+</ul>
+</medium></p>
+</section>
+
+<section>
+	<h2>What format is best for hosting Variable Fonts locally?</h2>
+<p><medium>
+WOFF2 (Web Open Font Format 2): This format supports variable fonts and is the most widely used for web purposes due to its compression, which reduces file sizes without sacrificing quality.
+</medium></p>
+</section>
+
+<section>
+	<h2>Google .ttf Fonts do not load via @font-face</h2>
+<p><medium>
+I found a tutorial by <a href="https://henry.codes/writing/how-to-convert-variable-ttf-font-files-to-woff2/">Henry Desroches</a> pointing to a <br><a href="https://github.com/google/woff2">Google file on Github</a> to convert .ttf files to woff2 files.
+</medium></p>
+
+<img src="https://CraigWebbArt.com/Variable-Font-Libraries/Henry-Desroches-02.png" alt="Henry-Desroches" style="height: auto; margin: 0 auto 2rem auto; background: transparent;">
+</section>
+
+
+<section>
+	<h2>In Terminal – Converting Variable Fonts to woff2</h2>
+<p><small>
+Loading the program</small></p>
+<p><medium>
+<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+craigwebb@Hero ~ % cd Documents/Variable-Sans-Serif-Fonts
+
+craigwebb@Hero Variable-Sans-Serif-Fonts % git clone --recursive https://github.com/google/woff2.git
+cd woff2
+
+Cloning into 'woff2'...
+</code></pre>
+</medium></p>
+<p><small>
+Converting fonts from .ttf to .woff2:
+</small></p>
+<p><medium>
+<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+
+craigwebb@Hero woff2 % ./woff2_compress ~/Documents/Variable-Sans-Serif-Fonts/Figtree/Figtree-Italic-VariableFont_wght.ttf
+
+craigwebb@Hero woff2 % ./woff2_compress ~/Documents/Variable-Sans-Serif-Fonts/Figtree/Figtree-VariableFont_wght.ttf
+
+</code></pre>
+
+</medium></p>
+</section>
+
+<section>
+	<h2>Google Fonts <br>Variable Fonts and Axis Data</h2>
+<p><medium>
+
+Google fonts lists available variable fonts and lists each font's axis features here: <a href="https://fonts.google.com/variablefonts">https://fonts.google.com/variablefonts</a>. The list includes axis information that looks like this:
+</medium></p>
+
+<p><medium>
+<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+Inter-Italic-VariableFont_opsz,wght
+Inter-VariableFont_opsz,wght
+
+Axes	Default	Min	Max		Step
+ital		0			0		1			1
+opsz		14		14	32		0.1
+wght		400		100	900		1
+
+</code></pre>
+
+</medium></p>
+</section>
+
+
+				<section data-background-iframe="https://CraigWebbArt.com/Variable-Font-Libraries/San-Serif-Variable-Fonts.html" data-background-interactive data-background="#FFF">
+					<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(30, 25, 125, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+						<h2 style="color:white;">Converted Variable Fonts on Github</h2>
+						<p>I converted dozens of San-serif Fonts and posted the collection on Github.</p>
+					</div>
+				</section>
+
+<section>
+	<h2>Thank you</h2>
+<p><medium>
+</medium><a href="https://CraigWebbArt.com">CraigWebbArt.com</a><br>
+<a href="https://github.com/cwebba1">https://github.com/cwebba1</a><br>
+<a href="https://www.linkedin.com/in/craigwebbart/">linkedin.com/in/craigwebbart</a>
+</p>
+<p>Ask me about <span style="color:hotpink;">Egg Tempera Painting<medium></span><br>
+I am hosting an Egg Tempera Workshop<br>
+March 22nd, 1 – 4pm<br>
+At <span style="color:hotpink;">The The Collaboratory</span><br>
+4009 21st St., LIC · Near the F Train
+</medium></p>
+</section>
+
+
+
+			</div>
+
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
